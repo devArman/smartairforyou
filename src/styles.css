@@ -388,6 +388,16 @@ section[id] {
   animation: rise 1s var(--ease) both;
 }
 
+.hero-title .t-kicker {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(238, 242, 251, 0.82);
+  margin-bottom: 14px;
+}
+
 .hero-title .t-warm {
   background: var(--grad-warm);
   -webkit-background-clip: text;

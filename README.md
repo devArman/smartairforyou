@@ -22,3 +22,7 @@ Photos in `public/images` are free Unsplash images — replace with real job pho
 
 ## Deploy
 Vercel: framework preset **Vite**, build command `npm run build`, output directory `dist`.
+
+## SEO
+- `npm run build` prerenders the page to static HTML (`src/entry-server.jsx` + `scripts/prerender.mjs`), so crawlers see full content without JS; the browser then hydrates it.
+- JSON-LD (HVACBusiness + services + service area + FAQPage) is generated from `src/data/site.js` by `src/seo.js` — edit the data, not the markup.

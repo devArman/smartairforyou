@@ -42,7 +42,7 @@ export function Services() {
             >
               {s.image && (
                 <div className="card-media">
-                  <img src={s.image} alt="" loading="lazy" />
+                  <img src={s.image} alt={s.alt} loading="lazy" width="900" height="700" />
                 </div>
               )}
               <div className="card-body">
@@ -78,7 +78,7 @@ export function HeatingCooling() {
         <div className="climate-grid">
           {sides.map(([tone, icon, c], i) => (
             <Reveal key={tone} delay={i * 120} className={`climate-card climate-card--${tone}`}>
-              <img src={c.image} alt="" loading="lazy" />
+              <img src={c.image} alt={c.alt} loading="lazy" width="1200" height="900" />
               <div className="climate-overlay" />
               <div className="climate-body">
                 <span className="climate-kicker"><Icon name={icon} size={16} /> {c.kicker}</span>
@@ -127,7 +127,7 @@ export function Gallery() {
         <div className="gallery">
           {gallery.map((g, i) => (
             <Reveal key={g.src} delay={i * 80} className={`gallery-item gallery-item--${i}`}>
-              <img src={g.src} alt={g.alt} loading="lazy" />
+              <img src={g.src} alt={g.alt} loading="lazy" width="1200" height="900" />
             </Reveal>
           ))}
           <Reveal delay={200} className="gallery-quote">

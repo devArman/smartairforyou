@@ -95,10 +95,11 @@ export default function Hero() {
       <div className="container hero-grid">
         <div className="hero-copy">
           <span className="pill">
-            <Icon name="ShieldCheck" size={16} /> Licensed &amp; insured · {company.city}, {company.state}
+            <Icon name="ShieldCheck" size={16} /> Licensed &amp; insured · Free estimates
           </span>
 
           <h1 className="hero-title">
+            <span className="t-kicker">Heating &amp; Air Conditioning in {company.city}, {company.state}</span>
             <span className="t-warm">Warm winters.</span>
             <span className="t-cool">Cool summers.</span>
             <span className="t-plain">Comfort all year round.</span>

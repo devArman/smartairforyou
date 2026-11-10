@@ -5,6 +5,8 @@
 // Replace with the company's own job photos when available.
 const img = (id) => `${import.meta.env.BASE_URL}images/${id}.jpg`
 
+export const siteUrl = 'https://www.smartairforyou.com/'
+
 export const company = {
   name: 'SmartAir System',
   legalName: 'SMARTAIR SYSTEM LLC',
@@ -55,6 +57,7 @@ export const services = [
     title: 'AC Installation',
     text: 'Right-sized central air systems installed for maximum efficiency and quiet operation.',
     image: img('photo-1718203862467-c33159fdc504', 900, 700),
+    alt: 'Outdoor air conditioner condenser installed on a home in New Jersey',
     featured: true,
   },
   {
@@ -63,6 +66,7 @@ export const services = [
     title: 'Furnace & Boiler',
     text: 'Installation, replacement and repair of gas and electric heating systems.',
     image: img('photo-1761319914911-71b059a655d8', 900, 700),
+    alt: 'Warm living room heated in winter',
     featured: true,
   },
   {
@@ -115,12 +119,14 @@ export const climate = {
     title: 'Heating',
     kicker: 'Warm winters',
     image: img('photo-1770736158887-9a0f3702416e', 1200, 900),
+    alt: 'Cozy home with a fireplace and heating in winter',
     points: ['Furnace installation & replacement', 'Boiler service', 'Heat pump systems', 'No-heat repairs'],
   },
   cooling: {
     title: 'Cooling',
     kicker: 'Cool summers',
     image: img('photo-1618221639244-c1a8502c0eb9', 1200, 900),
+    alt: 'Bright, cool living room with air conditioning in summer',
     points: ['Central air conditioning', 'Ductless mini-splits', 'Refrigerant & leak repair', 'Pre-summer tune-ups'],
   },
 }
