@@ -14,6 +14,7 @@ export const company = {
   state: 'NJ',
   zip: '08701',
   hours: 'Mon–Sat · 8:00 AM – 6:00 PM',
+  email: '', // TODO: set to info@smartairforyou.com once the Zoho mailbox works
   slogan: 'Warm winters. Cool summers. Comfort all year round.',
 }
 

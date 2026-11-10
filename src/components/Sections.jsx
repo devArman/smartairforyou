@@ -197,9 +197,23 @@ export function Faq() {
 }
 
 export function Contact() {
-  const [form, setForm] = useState({ name: '', service: 'Repair', details: '' })
-  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
-  const body = `Hi SmartAir! My name is ${form.name || '…'}. I need: ${form.service}.${form.details ? ` ${form.details}` : ''}`
+  const [copied, setCopied] = useState(false)
+  const copyPhone = async () => {
+    try {
+      await navigator.clipboard.writeText(company.phone)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      /* clipboard unavailable — number is still selectable text */
+    }
+  }
+
+  const rows = [
+    { icon: 'Phone', label: 'Phone', value: company.phone, href: phoneHref },
+    company.email && { icon: 'Mail', label: 'Email', value: company.email, href: `mailto:${company.email}` },
+    { icon: 'MapPin', label: 'Based in', value: `${company.city}, ${company.state} ${company.zip}` },
+    { icon: 'Clock', label: 'Hours', value: company.hours },
+  ].filter(Boolean)
 
   return (
     <section id="contact" className="section contact">
@@ -212,40 +226,35 @@ export function Contact() {
             <p className="section-text">
               Call or text us and we’ll schedule a free, no-obligation visit. Clear quote, honest advice, clean work.
             </p>
-            <a href={phoneHref} className="contact-phone">
-              <Icon name="Phone" size={26} /> {company.phone}
-            </a>
-            <ul className="contact-meta">
-              <li><Icon name="MapPin" size={18} /> {company.city}, {company.state} {company.zip}</li>
-              <li><Icon name="Clock" size={18} /> {company.hours}</li>
-            </ul>
+            <div className="contact-ctas">
+              <a href={phoneHref} className="btn btn--grad btn--lg">
+                <Icon name="Phone" size={18} /> Call now
+              </a>
+              <a href={smsHref()} className="btn btn--ghost btn--lg">
+                <Icon name="MessageSquare" size={18} /> Text us
+              </a>
+            </div>
           </Reveal>
 
-          <Reveal as="form" delay={120} className="quote glass" onSubmit={(e) => {
-            e.preventDefault()
-            window.location.href = smsHref(body)
-          }}>
-            <h3>Request a quote by text</h3>
-            <label>
-              <span>Your name</span>
-              <input value={form.name} onChange={set('name')} placeholder="John Smith" autoComplete="name" required />
-            </label>
-            <label>
-              <span>What do you need?</span>
-              <select value={form.service} onChange={set('service')}>
-                {['Repair', 'AC installation', 'Heating installation', 'Heat pump / mini-split', 'Maintenance / tune-up', 'Commercial project', 'Something else'].map((o) => (
-                  <option key={o}>{o}</option>
-                ))}
-              </select>
-            </label>
-            <label>
-              <span>Details <i>(optional)</i></span>
-              <textarea value={form.details} onChange={set('details')} rows={3} placeholder="Address, system age, what’s happening…" />
-            </label>
-            <button className="btn btn--grad btn--lg btn--block" type="submit">
-              <Icon name="MessageSquare" size={18} /> Send text message
-            </button>
-            <small className="quote-note">Opens your messages app with everything filled in.</small>
+          <Reveal as="address" delay={120} className="contact-info glass">
+            <h3>Contact {company.name}</h3>
+            <ul>
+              {rows.map((r) => (
+                <li key={r.label}>
+                  <span className="contact-info-icon"><Icon name={r.icon} size={20} /></span>
+                  <span className="contact-info-text">
+                    <small>{r.label}</small>
+                    {r.href ? <a href={r.href}>{r.value}</a> : <span>{r.value}</span>}
+                  </span>
+                  {r.label === 'Phone' && (
+                    <button type="button" className="copy-btn" onClick={copyPhone} aria-live="polite">
+                      <Icon name={copied ? 'Check' : 'Copy'} size={16} />
+                      <span className="copy-label">{copied ? 'Copied' : 'Copy'}</span>
+                    </button>
+                  )}
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </div>

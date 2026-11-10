@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import {
-  ArrowRight, ArrowUpRight, Building2, Check, ChevronDown, Circle, Clock, Fan, Flame, MapPin,
+  ArrowRight, ArrowUpRight, Building2, Check, ChevronDown, Circle, Clock, Copy, Fan, Flame, Mail, MapPin,
   MessageSquare, Phone, Repeat, ShieldCheck, Snowflake, Sparkles, Star, Sun, Thermometer, Wind, Wrench,
 } from 'lucide-react'
 
 const Icons = {
-  ArrowRight, ArrowUpRight, Building2, Check, ChevronDown, Circle, Clock, Fan, Flame, MapPin,
+  ArrowRight, ArrowUpRight, Building2, Check, ChevronDown, Circle, Clock, Copy, Fan, Flame, Mail, MapPin,
   MessageSquare, Phone, Repeat, ShieldCheck, Snowflake, Sparkles, Star, Sun, Thermometer, Wind, Wrench,
 }
 
