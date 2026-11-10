@@ -156,6 +156,26 @@ export function Area() {
           ))}
         </Reveal>
       </div>
+      <div className="container">
+        <Reveal className="area-seo">
+          <h3>Heating &amp; air conditioning services near you in New Jersey</h3>
+          <p>
+            {company.name} is a local HVAC contractor in {company.city}, {company.state}. We handle{' '}
+            <strong>AC repair</strong>, <strong>air conditioning installation</strong> and replacement,{' '}
+            <strong>central air</strong> service, <strong>furnace repair</strong> and{' '}
+            <strong>furnace installation</strong>, <strong>boiler service</strong>,{' '}
+            <strong>heating repair</strong>, <strong>heat pump installation</strong>,{' '}
+            <strong>ductless mini-split</strong> systems, <strong>ductwork</strong>,{' '}
+            <strong>smart thermostat</strong> installation and seasonal <strong>HVAC maintenance</strong> and
+            tune-ups.
+          </p>
+          <p>
+            We work with homeowners, landlords and businesses in {serviceArea.slice(0, -2).join(', ')} and across
+            Ocean County and Monmouth County, NJ. Looking for an HVAC company near you? Call{' '}
+            <a href={phoneHref}>{company.phone}</a> for a free estimate.
+          </p>
+        </Reveal>
+      </div>
     </section>
   )
 }
